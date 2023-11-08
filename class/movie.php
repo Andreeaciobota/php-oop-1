@@ -25,6 +25,7 @@ class Movie
         $this->productionCompany = $_productionCompany;
         $this->totalMinutes = $_totalMinutes;
         $this->poster = $_poster;
+        
     }
     // / CONSTRUCT
 
