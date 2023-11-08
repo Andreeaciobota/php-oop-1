@@ -1,6 +1,17 @@
 <?php
 
 include __DIR__ . "/db/data.php";
+if (isset($_GET['category']) && $_GET['category'] === 'films') {
+    $selectedCategory = $movies;
+    $pageTitle = "Films";
+} elseif (isset($_GET['category']) && $_GET['category'] === 'tvseries') {
+    $selectedCategory = $tvSeries;
+    $pageTitle = "TV Series";
+} else {
+    $selectedCategory = $movies; // Default category (films)
+    $pageTitle = "Films";
+}
+
 
 ?>
 
@@ -62,7 +73,7 @@ include __DIR__ . "/db/data.php";
 
                     <!-- php -->
                     <?php
-                    foreach ($movies as $movie) { ?>
+                    foreach ($selectedCategory as $movie) { ?>
                         <div class="banner border">
                             <img src="<?php echo ($movie->getPoster()) ?>" class="img-fluid rounded" alt="banner_film">
                         </div>
